@@ -6,7 +6,7 @@ import java.util.*;
 
 public class VendingMachineDAOImpl implements VendingMachineDAO{
 
-    private Map<String,VendingMachineItem> items;
+    private HashMap<String,VendingMachineItem> items;
     private final String filePath = "data.txt";
     private FileReader fileReader;
     private FileWriter fileWriter;
@@ -18,14 +18,14 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
     }
 
     @Override
-    public Map<String, VendingMachineItem> getAllItems() {
+    public HashMap<String, VendingMachineItem> getAllItems() {
         return this.items;
     }
 
 
 
     @Override
-    public void setAllItems(Map<String, VendingMachineItem> items) {
+    public void setAllItems(HashMap<String, VendingMachineItem> items) {
         this.items = items;
     }
 

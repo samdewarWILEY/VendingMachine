@@ -4,9 +4,9 @@ import java.util.*;
 
 public interface VendingMachineDAO {
 
-    public Map<String,VendingMachineItem> getAllItems();
+    public HashMap<String,VendingMachineItem> getAllItems();
 
-    public void setAllItems(Map<String,VendingMachineItem> items);
+    public void setAllItems(HashMap<String,VendingMachineItem> items);
 
     public void marshallItems();
 

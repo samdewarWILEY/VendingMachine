@@ -1,5 +1,5 @@
 package packages.service;
 
 public enum CoinValues {
-    Quarter,Dime,Nickel
+    Quarter,Dime,Nickel,Penny
 }

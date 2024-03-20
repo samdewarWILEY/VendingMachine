@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a93ff48-76f7-4276-a1cd-bdab3859d327" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/packages/service/Exception/VendingMachineException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/packages/service/Exception/VendingMachineInsufficientCoinException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/packages/service/Exception/VendingMachineItemNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/packages/service/Exception/VendingMachineOutOfStockException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/io/UserIOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/io/UserIOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/service/CoinValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/service/CoinValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/service/VendingMachineServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/service/VendingMachineServiceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/service/VendingMachineServiceLayerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/service/VendingMachineServiceLayerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a93ff48-76f7-4276-a1cd-bdab3859d327" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/packages/dao/VendingMachineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/dao/VendingMachineDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/packages/dao/VendingMachineDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/dao/VendingMachineDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/dao/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>

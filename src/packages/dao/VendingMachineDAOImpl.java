@@ -7,11 +7,11 @@ import java.util.*;
 public class VendingMachineDAOImpl implements VendingMachineDAO{
 
     private HashMap<String,VendingMachineItem> items;
-    private final String filePath = "data.txt";
+    private final String filePath = "../VendingMachine/src/data.txt";
     private FileReader fileReader;
     private FileWriter fileWriter;
     private BufferedReader bufferedReader;
-    private final String delimeter = "::";
+    private final String DELIMITER = "::";
 
     public VendingMachineDAOImpl() {
         items = new HashMap<>();
@@ -36,7 +36,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
             for (String name : items.keySet()){
                 String line = "";
                 VendingMachineItem item = items.get(name);
-                line += name + delimeter + item.getCost() + delimeter + item.getQty();
+                line += name + DELIMITER + item.getCost() + DELIMITER + item.getQty();
                 fileWriter.write(line);
                 fileWriter.write(System.lineSeparator());
             }
@@ -53,7 +53,8 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
             bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine())!= null){
-                String[] tokens = line.split(delimeter);
+                System.out.println(line);
+                String[] tokens = line.split(DELIMITER);
                 String name = tokens[0];
                 BigDecimal cost = new BigDecimal(tokens[1]);
                 int qty = Integer.parseInt(tokens[2]);

@@ -36,7 +36,7 @@ public class UserIOImpl implements UserIO{
         try{
             do{
             output = scanner.nextDouble();
-            }while(output>max || output<max);
+            }while(output>max || output<min);
         }catch (Exception e){
             System.out.println(e);
             return 0;

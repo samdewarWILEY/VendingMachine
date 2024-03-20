@@ -10,8 +10,8 @@ public interface VendingMachineDAO {
 
     public void setAllItems(HashMap<String,VendingMachineItem> items);
 
-    public void marshallItems();
+    public void updateInventory(HashMap<String,VendingMachineItem> items);
 
-    public void unmarshallItems();
+
 
 }

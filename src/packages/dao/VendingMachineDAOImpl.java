@@ -31,8 +31,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
         this.items = items;
     }
 
-    @Override
-    public void marshallItems(){
+    private void marshallItems(){
         try {
             fileWriter = new FileWriter(filePath);
             for (String name : items.keySet()){
@@ -48,8 +47,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
         }
     }
 
-    @Override
-    public void unmarshallItems() {
+    private void unmarshallItems() {
         try {
             fileReader = new FileReader(filePath);
             bufferedReader = new BufferedReader(fileReader);
@@ -69,5 +67,13 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void updateInventory(HashMap<String,VendingMachineItem> items){
+        this.items = items;
+        marshallItems();
+    }
+
+
 
 }

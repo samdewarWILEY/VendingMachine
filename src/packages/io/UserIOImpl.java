@@ -53,6 +53,11 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
+    public int getInt(String message, double min, double max) {
+        return 0;
+    }
+
+    @Override
     public String getString(String message) {
         System.out.println(message);
         try{
@@ -72,5 +77,10 @@ public class UserIOImpl implements UserIO{
             System.out.println(e);
             return null;
         }
+    }
+
+    @Override
+    public BigDecimal getBigDecimal(String message, BigDecimal min, BigDecimal max) {
+        return null;
     }
 }

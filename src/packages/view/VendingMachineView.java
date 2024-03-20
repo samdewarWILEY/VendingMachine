@@ -1,6 +1,6 @@
 package packages.view;
 
-import packages.dao.VendingMachineItem;
+import packages.dto.VendingMachineItem;
 import packages.io.UserIO;
 
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ public class VendingMachineView {
         this.io = io;
     }
 
-    public void displayAllItems(HashMap<String, packages.dao.VendingMachineItem> items) {
+    public void displayAllItems(HashMap<String,VendingMachineItem> items) {
         int i = 0; // to assign a number to each item.
         for (VendingMachineItem item : items.values()) {
             io.print(i + ". " + item.getName() + "::" + item.getCost());

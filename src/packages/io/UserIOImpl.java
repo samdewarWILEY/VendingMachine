@@ -1,5 +1,6 @@
 package packages.io;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class UserIOImpl implements UserIO{
@@ -45,6 +46,17 @@ public class UserIOImpl implements UserIO{
         }catch (Exception e){
             System.out.println(e);
             return "";
+        }
+    }
+
+    @Override
+    public BigDecimal getBigDecimal(String message){
+        System.out.println(message);
+        try{
+            return new BigDecimal(scanner.nextLine());
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
         }
     }
 }

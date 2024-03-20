@@ -3,6 +3,8 @@ package packages.io;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+import static java.text.ChoiceFormat.nextDouble;
+
 public class UserIOImpl implements UserIO{
     Scanner scanner;
     public UserIOImpl(){
@@ -25,6 +27,18 @@ public class UserIOImpl implements UserIO{
             System.out.println(e);
             return 0;
         }
+    }
+
+    @Override
+    public double getDouble(String message, double min, double max){
+        double output;
+        try{
+            output = scanner.nextDouble();
+        }catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+        return output;
     }
 
     @Override

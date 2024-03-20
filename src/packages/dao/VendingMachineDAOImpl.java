@@ -1,5 +1,7 @@
 package packages.dao;
 
+import packages.dto.VendingMachineItem;
+
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
@@ -36,7 +38,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
             for (String name : items.keySet()){
                 String line = "";
                 VendingMachineItem item = items.get(name);
-                line += name + DELIMITER + item.getCost() + DELIMITER + item.getQty();
+                line += name + DELIMITER + item.getCost() + DELIMITER + item.getQuantity();
                 fileWriter.write(line);
                 fileWriter.write(System.lineSeparator());
             }

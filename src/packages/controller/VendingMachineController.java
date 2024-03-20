@@ -1,6 +1,7 @@
 package packages.controller;
 
 import packages.dao.VendingMachineDAO;
+
 import packages.service.VendingMachineServiceLayer;
 import packages.view.VendingMachineView;
 
@@ -22,7 +23,6 @@ public class VendingMachineController {
         var items = dao.getAllItems();
         while (true) {
             view.displayAllItems(items);
-
             items.remove(view.promptForItem());
             dao.setAllItems(items);
         }

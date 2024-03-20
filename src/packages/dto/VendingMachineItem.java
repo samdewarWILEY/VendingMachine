@@ -2,12 +2,14 @@ package packages.dto;
 
 import packages.view.VendingMachineView;
 
+import java.math.BigDecimal;
+
 public class VendingMachineItem {
     private String name;
-    private double cost;
+    private BigDecimal cost;
     private int quantity;
 
-    public VendingMachineItem(String name, double cost, int quantity){
+    public VendingMachineItem(String name, BigDecimal cost, int quantity){
         this.cost= cost;
         this.name = name;
         this.quantity =  quantity;
@@ -21,11 +23,11 @@ public class VendingMachineItem {
         return quantity;
     }
 
-    public double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 

@@ -15,17 +15,17 @@ public class VendingMachineView {
     public void displayAllItems(Map<String, VendingMachineItem> items) {
         int i = 0; // to assign a number to each item.
         for (VendingMachineItem item : items.values()) {
-            io.print(i + ". " + item.getName() + "::" + item.getCost());
+            io.getString(i + ". " + item.getName() + "::" + item.getCost());
             i++;
         }
-        io.print(items.size() + " .Exit");
+        io.printString(items.size() + " .Exit");
     }
 
     public double promptToInsertCoin() {
-        return io.readDouble("Please put a coin into the vending machine: ",  0, 100 );
+        return io.getDouble("Please put a coin into the vending machine: ", 0, 100);
     }
 
     public int promptForItem() {
-        return io.readInt("Please choose an item from the list above.");
+        return io.getInt("Please choose an item from the list above.");
     }
 }

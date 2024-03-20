@@ -15,6 +15,6 @@ public class Main {
 
         VendingMachineView view = new VendingMachineView(io);
         VendingMachineController controller = new VendingMachineController(dao,serviceLayer,view);
-
+        controller.run();
     }
 }

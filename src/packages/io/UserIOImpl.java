@@ -14,12 +14,12 @@ public class UserIOImpl implements UserIO{
         this.scanner=scanner;
     }
     @Override
-    public void printString(String message) {
+    public void print(String message) {
         System.out.println(message);
     }
 
     @Override
-    public double getDouble(String message) {
+    public double readDouble(String message) {
         System.out.println(message);
         try{
             return scanner.nextDouble();
@@ -30,7 +30,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public double getDouble(String message, double min, double max){
+    public double readDouble(String message, double min, double max){
         System.out.println(message);
         double output;
         try{
@@ -45,7 +45,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public int getInt(String message) {
+    public int readInt(String message) {
         System.out.println(message);
         try{
             return scanner.nextInt();
@@ -56,7 +56,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public int getInt(String message, double min, double max) {
+    public int readInt(String message, double min, double max) {
         System.out.println(message);
         int output;
         try{
@@ -71,7 +71,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public String getString(String message) {
+    public String readString(String message) {
         System.out.println(message);
         try{
             return scanner.nextLine();
@@ -82,7 +82,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public BigDecimal getBigDecimal(String message){
+    public BigDecimal readBigDecimal(String message){
         System.out.println(message);
         try{
             return new BigDecimal(scanner.nextLine());
@@ -93,7 +93,7 @@ public class UserIOImpl implements UserIO{
     }
 
     @Override
-    public BigDecimal getBigDecimal(String message, BigDecimal min, BigDecimal max) {
+    public BigDecimal readBigDecimal(String message, BigDecimal min, BigDecimal max) {
         System.out.println(message);
         BigDecimal output;
         try{

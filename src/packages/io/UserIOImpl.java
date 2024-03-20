@@ -31,9 +31,12 @@ public class UserIOImpl implements UserIO{
 
     @Override
     public double getDouble(String message, double min, double max){
+        System.out.println(message);
         double output;
         try{
+            do{
             output = scanner.nextDouble();
+            }while(output>max || output<max);
         }catch (Exception e){
             System.out.println(e);
             return 0;
@@ -54,7 +57,17 @@ public class UserIOImpl implements UserIO{
 
     @Override
     public int getInt(String message, double min, double max) {
-        return 0;
+        System.out.println(message);
+        int output;
+        try{
+            do{
+                output=scanner.nextInt();
+            }while(output>max || output<min);
+        }catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+        return output;
     }
 
     @Override
@@ -81,6 +94,16 @@ public class UserIOImpl implements UserIO{
 
     @Override
     public BigDecimal getBigDecimal(String message, BigDecimal min, BigDecimal max) {
-        return null;
+        System.out.println(message);
+        BigDecimal output;
+        try{
+            do{
+                output=new BigDecimal(scanner.nextLine());
+            }while(output.compareTo(min)<0 || output.compareTo(max)>0);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+        return output;
     }
 }

@@ -1,3 +1,3 @@
 package packages.service;
-public interface VendingMachineServiceLayer {
+public interface VendingMachineServiceLayer{
 }

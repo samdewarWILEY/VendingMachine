@@ -12,7 +12,7 @@ public class VendingMachineController {
     private VendingMachineView view;
 
 
-    VendingMachineController(VendingMachineDAO dao, VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
+    public VendingMachineController(VendingMachineDAO dao, VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
         this.dao = dao;
         this.serviceLayer = serviceLayer;
         this.view = view;

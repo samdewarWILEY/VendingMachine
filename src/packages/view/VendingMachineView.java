@@ -3,6 +3,7 @@ package packages.view;
 import packages.dto.VendingMachineItem;
 import packages.io.UserIO;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class VendingMachineView {
@@ -15,17 +16,17 @@ public class VendingMachineView {
     public void displayAllItems(Map<String, VendingMachineItem> items) {
         int i = 0; // to assign a number to each item.
         for (VendingMachineItem item : items.values()) {
-            io.getString(i + ". " + item.getName() + "::" + item.getCost());
+            io.print(i + ". " + item.getName() + "::" + item.getCost());
             i++;
         }
-        io.printString(items.size() + " .Exit");
+        io.print(items.size() + " .Exit");
     }
 
-    public double promptToInsertCoin() {
-        return io.getDouble("Please put a coin into the vending machine: ", 0, 100);
+    public BigDecimal promptToInsertCoin() {
+        return io.readBigDecimal("Please put a coin into the vending machine: ");
     }
 
     public int promptForItem() {
-        return io.getInt("Please choose an item from the list above.");
+        return io.readInt("Please choose an item from the list above.");
     }
 }

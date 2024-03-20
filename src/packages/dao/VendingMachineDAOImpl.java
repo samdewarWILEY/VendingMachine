@@ -30,8 +30,20 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
     }
 
     @Override
-    public void marshallItems() {
-
+    public void marshallItems(){
+        try {
+            fileWriter = new FileWriter(filePath);
+            for (String name : items.keySet()){
+                String line = "";
+                VendingMachineItem item = items.get(name);
+                line += name + delimeter + item.getCost() + delimeter + item.getQty();
+                fileWriter.write(line);
+                fileWriter.write(System.lineSeparator());
+            }
+            fileWriter.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -55,8 +67,4 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
         }
     }
 
-    @Override
-    public void updateInventory() {
-
-    }
 }

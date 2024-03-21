@@ -25,8 +25,8 @@ public class VendingMachineController {
         var items = serviceLayer.getAllItems();
         while (true) {
             view.displayAllItems(items);
-            serviceLayer.buyItem(view.promptForItem(), view.promptToInsertCoin());
-            serviceLayer.setAllItems(items);
+            String coin = view.promptToInsertCoin();
+            serviceLayer.buyItem(view.promptForItem(), coin);
         }
     }
 

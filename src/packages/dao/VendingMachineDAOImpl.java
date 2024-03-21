@@ -22,6 +22,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
 
     @Override
     public HashMap<String, VendingMachineItem> getAllItems() {
+        marshallItems();
         return this.items;
     }
 

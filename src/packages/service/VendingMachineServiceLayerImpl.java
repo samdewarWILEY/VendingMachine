@@ -72,8 +72,6 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException {
-        System.out.println(userSelection);
-        System.out.println(userCoin);
         switch (userSelection) {
             case 0:
                 returnCoin(new BigDecimal(userCoin), "m&m beans");

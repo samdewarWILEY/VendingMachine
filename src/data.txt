@@ -1,4 +1,4 @@
+m&m beans::2.7::15
 pepsi::5::6
-sparkling water::3.5::12
-m&m beans::2.7::20
+sparkling water::3.5::10
 Doritos Tortilla Chips::3.2::10

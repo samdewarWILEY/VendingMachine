@@ -18,6 +18,12 @@ public class UserIOImpl implements UserIO{
         System.out.println(message);
     }
 
+    /**
+     * Sam
+     * Read a double from commandline
+     * @param message to prompt user with
+     * @return double from user input
+     */
     @Override
     public double readDouble(String message) {
         System.out.println(message);
@@ -29,6 +35,13 @@ public class UserIOImpl implements UserIO{
         }
     }
 
+    /**
+     * Sam
+     * Read a double from commandline
+     * Loop will run indefinitely if the user enters a value out of range
+     * @param message to prompt user with
+     * @return double from user input
+     */
     @Override
     public double readDouble(String message, double min, double max){
         System.out.println(message);
@@ -44,6 +57,12 @@ public class UserIOImpl implements UserIO{
         return output;
     }
 
+    /**
+     * Sam
+     * Read an int from commandline
+     * @param message to prompt user with
+     * @return int from user input
+     */
     @Override
     public int readInt(String message) {
         System.out.println(message);
@@ -55,6 +74,13 @@ public class UserIOImpl implements UserIO{
         }
     }
 
+    /**
+     * Sam
+     * Read an int from commandline
+     * Loop will run indefinitely if the user enters a value out of range
+     * @param message to prompt user with
+     * @return int from user input
+     */
     @Override
     public int readInt(String message, double min, double max) {
         System.out.println(message);
@@ -70,6 +96,12 @@ public class UserIOImpl implements UserIO{
         return output;
     }
 
+    /**
+     * Sam
+     * Read a String from commandline
+     * @param message to prompt user with
+     * @return String from user input
+     */
     @Override
     public String readString(String message) {
         System.out.println(message);
@@ -81,6 +113,12 @@ public class UserIOImpl implements UserIO{
         }
     }
 
+    /**
+     * Sam
+     * Read a BigDecimal from commandline
+     * @param message to prompt user with
+     * @return BigDecimal from user input
+     */
     @Override
     public BigDecimal readBigDecimal(String message){
         System.out.println(message);
@@ -92,6 +130,13 @@ public class UserIOImpl implements UserIO{
         }
     }
 
+    /**
+     * Sam
+     * Read a BigDecimal from commandline
+     * Loop will run indefinitely if the user enters a value out of range
+     * @param message to prompt user with
+     * @return BigDecimal from user input
+     */
     @Override
     public BigDecimal readBigDecimal(String message, BigDecimal min, BigDecimal max) {
         System.out.println(message);

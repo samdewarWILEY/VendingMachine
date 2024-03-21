@@ -13,6 +13,11 @@ public class VendingMachineView {
         this.io = io;
     }
 
+    /**
+     * Ope
+     * Displays all the items in the items hashmap to UserIO
+     * @param items of the vending machine
+     */
     public void displayAllItems(HashMap<String,VendingMachineItem> items) {
         int i = 0; // to assign a number to each item.
         for (VendingMachineItem item : items.values()) {
@@ -22,10 +27,20 @@ public class VendingMachineView {
         io.print(items.size() + " .Exit");
     }
 
+    /**
+     * Ope
+     * Sends prompt to IO & reads string
+     * @return name of a coin (e.g. nickle)
+     */
     public String promptToInsertCoin() {
         return io.readString("Please put a coin into the vending machine: ");
     }
 
+    /**
+     * Ope
+     * Sends prompt to IO & reads string
+     * @return name of an item (e.g. pepsi)
+     */
     public int promptForItem() {
         return io.readInt("Please choose an item from the list above.");
     }

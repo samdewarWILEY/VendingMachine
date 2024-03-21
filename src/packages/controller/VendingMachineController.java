@@ -7,27 +7,26 @@ import packages.view.VendingMachineView;
 
 public class VendingMachineController {
 
-    private VendingMachineDAO dao;
+
     private VendingMachineServiceLayer serviceLayer;
     private VendingMachineView view;
 
 
-    public VendingMachineController(VendingMachineDAO dao, VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
-        this.dao = dao;
+    public VendingMachineController(VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
         this.serviceLayer = serviceLayer;
         this.view = view;
     }
 
 
     public void run() {
-        var items = dao.getAllItems();
+        var items = serviceLayer.getAllItems();
         int idx;
         while (true) {
             view.displayAllItems(items);
             idx =view.promptForItem();
             if(idx==items.size()) break;
             items.remove(idx);
-            dao.setAllItems(items);
+            serviceLayer.setAllItems(items);
         }
     }
 

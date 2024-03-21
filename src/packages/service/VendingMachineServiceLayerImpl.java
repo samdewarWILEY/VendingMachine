@@ -11,12 +11,14 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer{
-
-    public VendingMachineServiceLayerImpl(HashMap<CoinValues, Integer> coinSystem) {
+    private VendingMachineDAO dao;
+    public VendingMachineServiceLayerImpl(HashMap<CoinValues, Integer> coinSystem, VendingMachineDAO dao) {
         //instantiate the all the coins value as 0 by default
         for (CoinValues coin : coinSystem.keySet()){
             coinSystem.put(coin,0);
         }
+
+        this.dao=dao;
     }
 
     @Override
@@ -62,5 +64,15 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
                 System.out.println("Here is the change : " + CoinValues.Dime.getValueByIndex(i) + " quantities : " + numsOfCoins[i]);
             }
         }
+    }
+
+    @Override
+    public HashMap<String, VendingMachineItem> getAllItems() {
+        return null;
+    }
+
+    @Override
+    public void setAllItems(HashMap<String, VendingMachineItem> items) {
+
     }
 }

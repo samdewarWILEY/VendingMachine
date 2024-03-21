@@ -13,10 +13,10 @@ public class Main {
     public static void main(String[] args) {
         UserIO io = new UserIOImpl();
         VendingMachineDAO dao = new VendingMachineDAOImpl();
-        VendingMachineServiceLayer serviceLayer = new VendingMachineServiceLayerImpl(new HashMap<>());
+        VendingMachineServiceLayer serviceLayer = new VendingMachineServiceLayerImpl(new HashMap<>(),dao);
 
         VendingMachineView view = new VendingMachineView(io);
-        VendingMachineController controller = new VendingMachineController(dao,serviceLayer,view);
+        VendingMachineController controller = new VendingMachineController(serviceLayer,view);
         controller.run();
     }
 }

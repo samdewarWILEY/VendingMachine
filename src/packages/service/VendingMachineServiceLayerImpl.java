@@ -68,11 +68,11 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
 
     @Override
     public HashMap<String, VendingMachineItem> getAllItems() {
-        return null;
+        return dao.getAllItems();
     }
 
     @Override
     public void setAllItems(HashMap<String, VendingMachineItem> items) {
-
+        dao.setAllItems(items);
     }
 }

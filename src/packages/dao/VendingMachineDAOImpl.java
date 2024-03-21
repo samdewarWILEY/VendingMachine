@@ -20,18 +20,31 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
         unmarshallItems();
     }
 
+    /**
+     * Zhimeng
+     * Getter for items
+     * @return items hashmap
+     */
     @Override
     public HashMap<String, VendingMachineItem> getAllItems() {
         return this.items;
     }
 
 
-
+    /**
+     * Zhimeng
+     * Setter for items
+     * @param items updated hashmap
+     */
     @Override
     public void setAllItems(HashMap<String, VendingMachineItem> items) {
         this.items = items;
     }
 
+    /**
+     * Zhimeng
+     * Writes current state of items to a file specified by filePath
+     */
     private void marshallItems(){
         try {
             fileWriter = new FileWriter(filePath);
@@ -47,7 +60,10 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
             throw new RuntimeException(e);
         }
     }
-
+    /**
+     * Zhimeng
+     * reads from file specified by file
+     */
     private void unmarshallItems() {
         try {
             fileReader = new FileReader(filePath);
@@ -69,6 +85,11 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
         }
     }
 
+    /**
+     * Zhimeng
+     * Synchronise inventory with filesystem
+     * @param itemToUpdate
+     */
     @Override
     public void updateInventory(String itemToUpdate){
         unmarshallItems();

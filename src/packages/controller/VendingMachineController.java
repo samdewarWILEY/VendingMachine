@@ -21,9 +21,12 @@ public class VendingMachineController {
 
     public void run() {
         var items = dao.getAllItems();
+        int idx;
         while (true) {
             view.displayAllItems(items);
-            items.remove(view.promptForItem());
+            idx =view.promptForItem();
+            if(idx==items.size()) break;
+            items.remove(idx);
             dao.setAllItems(items);
         }
     }

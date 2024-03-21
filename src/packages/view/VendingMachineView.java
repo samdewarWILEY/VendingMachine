@@ -22,8 +22,8 @@ public class VendingMachineView {
         io.print(items.size() + " .Exit");
     }
 
-    public BigDecimal promptToInsertCoin() {
-        return io.readBigDecimal("Please put a coin into the vending machine: ");
+    public String promptToInsertCoin() {
+        return io.readString("Please put a coin into the vending machine: ");
     }
 
     public int promptForItem() {

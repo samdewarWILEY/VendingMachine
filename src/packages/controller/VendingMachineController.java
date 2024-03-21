@@ -24,6 +24,7 @@ public class VendingMachineController {
         int idx;
         while (true) {
             view.displayAllItems(items);
+            view.promptToInsertCoin();
             idx =view.promptForItem();
             if(idx==items.size()) break;
             items.remove(idx);

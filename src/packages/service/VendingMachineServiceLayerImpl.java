@@ -11,11 +11,8 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer{
-    // how many quantities of different coins for returning user
-    private List<CoinValues> coinSystem;
 
     public VendingMachineServiceLayerImpl(HashMap<CoinValues, Integer> coinSystem) {
-        this.coinSystem = new ArrayList<>();
         //instantiate the all the coins value as 0 by default
         for (CoinValues coin : coinSystem.keySet()){
             coinSystem.put(coin,0);
@@ -52,7 +49,18 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
         }
         VendingMachineItem currentItem = dao.getAllItems().get(itemName);
         BigDecimal itemCost = currentItem.getCost();
-
-
+        BigDecimal remainingCoin = coin.subtract(itemCost);
+        int[] numsOfCoins = new int[4];
+        int index = 0;
+        for (CoinValues value:CoinValues.values()){
+            numsOfCoins[index++] = remainingCoin.divide(value.getValue()).intValue();
+            remainingCoin = remainingCoin.remainder(value.getValue());
+        }
+        //return coin message
+        for (int i = 0 ; i < numsOfCoins.length; i++){
+            if(numsOfCoins[i]!= 0){
+                System.out.println("Here is the change : " + CoinValues.Dime.getValueByIndex(i) + " quantities : " + numsOfCoins[i]);
+            }
+        }
     }
 }

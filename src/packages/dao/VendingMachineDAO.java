@@ -10,7 +10,7 @@ public interface VendingMachineDAO {
 
     public void setAllItems(HashMap<String,VendingMachineItem> items);
 
-    public void updateInventory(HashMap<String,VendingMachineItem> items);
+    public void updateInventory(String itemToUpdate);
 
 
 

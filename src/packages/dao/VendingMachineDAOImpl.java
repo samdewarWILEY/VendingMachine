@@ -70,8 +70,10 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
     }
 
     @Override
-    public void updateInventory(HashMap<String,VendingMachineItem> items){
-        this.items = items;
+    public void updateInventory(String itemToUpdate){
+        unmarshallItems();
+        VendingMachineItem item = items.get(itemToUpdate); // update quanity value of this item
+        item.setQuantity(item.getQuantity() - 1);
         marshallItems();
     }
 

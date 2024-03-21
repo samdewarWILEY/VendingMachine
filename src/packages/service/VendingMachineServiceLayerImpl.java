@@ -10,57 +10,52 @@ import packages.service.Exception.VendingMachineOutOfStockException;
 import java.math.BigDecimal;
 import java.util.*;
 
-public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer{
+public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer {
     private VendingMachineDAO dao;
-    public VendingMachineServiceLayerImpl(HashMap<CoinValues, Integer> coinSystem, VendingMachineDAO dao) {
-        //instantiate the all the coins value as 0 by default
-        for (CoinValues coin : coinSystem.keySet()){
-            coinSystem.put(coin,0);
-        }
 
-        this.dao=dao;
+    public VendingMachineServiceLayerImpl(VendingMachineDAO dao) {
+        this.dao = dao;
     }
 
     @Override
-    public void dispenseItem(BigDecimal coin, String itemName, VendingMachineDAO dao) throws
+    public void dispenseItem(BigDecimal coin, String itemName) throws
             VendingMachineInsufficientCoinException,
             VendingMachineItemNotFoundException,
-            VendingMachineOutOfStockException
-    {
+            VendingMachineOutOfStockException {
         // The item is not exist in the vending machine
-        if(!dao.getAllItems().containsKey(itemName)){
-            throw new VendingMachineItemNotFoundException("The item can not found: " +itemName);
+        if (!dao.getAllItems().containsKey(itemName)) {
+            throw new VendingMachineItemNotFoundException("The item can not found: " + itemName);
         }
         VendingMachineItem currentItem = dao.getAllItems().get(itemName);
         // not enough stock
-        if(currentItem.getQuantity() < 1){
-            throw new VendingMachineOutOfStockException("The item "+ itemName + " is currently out of stock");
+        if (currentItem.getQuantity() < 1) {
+            throw new VendingMachineOutOfStockException("The item " + itemName + " is currently out of stock");
         }
         BigDecimal itemCost = currentItem.getCost();
         // not enough coin input
-        if(itemCost.compareTo(coin)>0){
+        if (itemCost.compareTo(coin) > 0) {
             throw new VendingMachineInsufficientCoinException("Please provide sufficient coin");
         }
-        System.out.println("Payment Successful, vending now ...." );
+        System.out.println("Payment Successful, vending now ....");
     }
 
     //returning the remaining coin to user
-    public void returnCoin(BigDecimal coin, String itemName,VendingMachineDAO dao) throws VendingMachineItemNotFoundException{
-        if(!dao.getAllItems().containsKey(itemName)){
-            throw new VendingMachineItemNotFoundException("The item can not found: " +itemName);
+    public void returnCoin(BigDecimal coin, String itemName) throws VendingMachineItemNotFoundException {
+        if (!dao.getAllItems().containsKey(itemName)) {
+            throw new VendingMachineItemNotFoundException("The item can not found: " + itemName);
         }
         VendingMachineItem currentItem = dao.getAllItems().get(itemName);
         BigDecimal itemCost = currentItem.getCost();
         BigDecimal remainingCoin = coin.subtract(itemCost);
         int[] numsOfCoins = new int[4];
         int index = 0;
-        for (CoinValues value:CoinValues.values()){
+        for (CoinValues value : CoinValues.values()) {
             numsOfCoins[index++] = remainingCoin.divide(value.getValue()).intValue();
             remainingCoin = remainingCoin.remainder(value.getValue());
         }
         //return coin message
-        for (int i = 0 ; i < numsOfCoins.length; i++){
-            if(numsOfCoins[i]!= 0){
+        for (int i = 0; i < numsOfCoins.length; i++) {
+            if (numsOfCoins[i] != 0) {
                 System.out.println("Here is the change : " + CoinValues.Dime.getValueByIndex(i) + " quantities : " + numsOfCoins[i]);
             }
         }
@@ -74,5 +69,31 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     @Override
     public void setAllItems(HashMap<String, VendingMachineItem> items) {
         dao.setAllItems(items);
+    }
+
+    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException {
+        System.out.println(userSelection);
+        System.out.println(userCoin);
+        switch (userSelection) {
+            case 0:
+                returnCoin(new BigDecimal(userCoin), "m&m beans");
+                dao.updateInventory("m&m beans");
+                break;
+            case 1:
+                returnCoin(new BigDecimal(userCoin), "pepsi");
+                dao.updateInventory("pepsi");
+                break;
+            case 2:
+                returnCoin(new BigDecimal(userCoin), "sparkling water");
+                dao.updateInventory("sparkling water");
+                break;
+            case 3:
+                returnCoin(new BigDecimal(userCoin), "Dortillo Tortilla Chips");
+                dao.updateInventory("Doritos Tortilla Chips");
+                break;
+            default:
+                break;
+        }
+
     }
 }

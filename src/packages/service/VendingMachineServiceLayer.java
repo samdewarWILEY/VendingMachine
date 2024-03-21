@@ -11,12 +11,14 @@ import java.util.HashMap;
 
 public interface VendingMachineServiceLayer{
 
-    public void dispenseItem(BigDecimal coin, String itemName, VendingMachineDAO dao) throws VendingMachineInsufficientCoinException,
+    public void dispenseItem(BigDecimal coin, String itemName) throws VendingMachineInsufficientCoinException,
             VendingMachineItemNotFoundException, VendingMachineOutOfStockException;
 
-    public void returnCoin(BigDecimal coin, String itemName,VendingMachineDAO dao) throws VendingMachineItemNotFoundException;
+    public void returnCoin(BigDecimal coin, String itemName) throws VendingMachineItemNotFoundException;
 
     public HashMap<String, VendingMachineItem> getAllItems();
 
     public void setAllItems(HashMap<String,VendingMachineItem> items);
+
+    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException;
 }

@@ -1,11 +1,13 @@
 package packages.dao;
 
+import org.springframework.stereotype.Component;
 import packages.dto.VendingMachineItem;
 
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 
+@Component
 public class VendingMachineDAOImpl implements VendingMachineDAO{
 
     private HashMap<String,VendingMachineItem> items;

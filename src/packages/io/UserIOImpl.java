@@ -1,10 +1,13 @@
 package packages.io;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
 
 import static java.text.ChoiceFormat.nextDouble;
 
+@Component
 public class UserIOImpl implements UserIO{
     Scanner scanner;
     public UserIOImpl(){

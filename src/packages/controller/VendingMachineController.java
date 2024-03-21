@@ -1,5 +1,7 @@
 package packages.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import packages.dao.VendingMachineDAO;
 
 import packages.service.Exception.VendingMachineInsufficientCoinException;
@@ -10,13 +12,14 @@ import packages.view.VendingMachineView;
 
 import java.math.BigDecimal;
 
+@Component
 public class VendingMachineController {
 
 
     private VendingMachineServiceLayer serviceLayer;
     private VendingMachineView view;
 
-
+@Autowired
     public VendingMachineController(VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
         this.serviceLayer = serviceLayer;
         this.view = view;

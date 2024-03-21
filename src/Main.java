@@ -1,3 +1,6 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import packages.controller.VendingMachineController;
 import packages.dao.VendingMachineDAO;
 import packages.dao.VendingMachineDAOImpl;
@@ -14,12 +17,17 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws VendingMachineItemNotFoundException, VendingMachineInsufficientCoinException, VendingMachineOutOfStockException {
-        UserIO io = new UserIOImpl();
-        VendingMachineDAO dao = new VendingMachineDAOImpl();
-        VendingMachineServiceLayer serviceLayer = new VendingMachineServiceLayerImpl(dao);
+//        UserIO io = new UserIOImpl();
+//        VendingMachineDAO dao = new VendingMachineDAOImpl();
+//        VendingMachineServiceLayer serviceLayer = new VendingMachineServiceLayerImpl(dao);
+//
+//        VendingMachineView view = new VendingMachineView(io);
+//        VendingMachineController controller = new VendingMachineController(serviceLayer,view);
 
-        VendingMachineView view = new VendingMachineView(io);
-        VendingMachineController controller = new VendingMachineController(serviceLayer,view);
+        AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
+        appContext.scan("packages");
+        appContext.refresh();
+        VendingMachineController controller = appContext.getBean( VendingMachineController.class);
         controller.run();
     }
 }

@@ -2,7 +2,9 @@ package packages.controller;
 
 import packages.dao.VendingMachineDAO;
 
+import packages.service.Exception.VendingMachineInsufficientCoinException;
 import packages.service.Exception.VendingMachineItemNotFoundException;
+import packages.service.Exception.VendingMachineOutOfStockException;
 import packages.service.VendingMachineServiceLayer;
 import packages.view.VendingMachineView;
 
@@ -21,7 +23,7 @@ public class VendingMachineController {
     }
 
 
-    public void run() throws VendingMachineItemNotFoundException {
+    public void run() throws VendingMachineItemNotFoundException, VendingMachineInsufficientCoinException, VendingMachineOutOfStockException {
         var items = serviceLayer.getAllItems();
         while (true) {
             view.displayAllItems(items);

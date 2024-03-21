@@ -3,10 +3,10 @@ package packages.service;
 import java.math.BigDecimal;
 
 public enum CoinValues {
-    Quarter(0,new BigDecimal("25")),
-    Dime(1,new BigDecimal("10")),
-    Nickel(2,new BigDecimal("5")),
-    Penny(3,new BigDecimal("1"));
+    Quarter(0,new BigDecimal("0.25")),
+    Dime(1,new BigDecimal("0.10")),
+    Nickel(2,new BigDecimal("0.05")),
+    Penny(3,new BigDecimal("0.01"));
 
     private BigDecimal value;
     private int index;

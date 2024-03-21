@@ -20,5 +20,5 @@ public interface VendingMachineServiceLayer{
 
     public void setAllItems(HashMap<String,VendingMachineItem> items);
 
-    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException;
+    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException, VendingMachineInsufficientCoinException, VendingMachineOutOfStockException;
 }

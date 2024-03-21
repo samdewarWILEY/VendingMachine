@@ -71,21 +71,25 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
         dao.setAllItems(items);
     }
 
-    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException {
+    public void buyItem(int userSelection, String userCoin) throws VendingMachineItemNotFoundException, VendingMachineInsufficientCoinException, VendingMachineOutOfStockException {
         switch (userSelection) {
             case 0:
+                dispenseItem(new BigDecimal(userCoin),"m&m beans");
                 returnCoin(new BigDecimal(userCoin), "m&m beans");
                 dao.updateInventory("m&m beans");
                 break;
             case 1:
+                dispenseItem(new BigDecimal(userCoin),"pepsi");
                 returnCoin(new BigDecimal(userCoin), "pepsi");
                 dao.updateInventory("pepsi");
                 break;
             case 2:
+                dispenseItem(new BigDecimal(userCoin),"sparkling water");
                 returnCoin(new BigDecimal(userCoin), "sparkling water");
                 dao.updateInventory("sparkling water");
                 break;
             case 3:
+                dispenseItem(new BigDecimal(userCoin),"Dortillo Tortilla Chips");
                 returnCoin(new BigDecimal(userCoin), "Dortillo Tortilla Chips");
                 dao.updateInventory("Doritos Tortilla Chips");
                 break;

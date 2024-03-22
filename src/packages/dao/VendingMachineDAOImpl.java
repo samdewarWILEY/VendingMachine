@@ -1,11 +1,14 @@
 package packages.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import packages.dto.VendingMachineItem;
 
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 
+@Component
 public class VendingMachineDAOImpl implements VendingMachineDAO{
 
     private HashMap<String,VendingMachineItem> items;
@@ -15,6 +18,7 @@ public class VendingMachineDAOImpl implements VendingMachineDAO{
     private BufferedReader bufferedReader;
     private final String DELIMITER = "::";
 
+    @Autowired
     public VendingMachineDAOImpl() {
         items = new HashMap<>();
         unmarshallItems();

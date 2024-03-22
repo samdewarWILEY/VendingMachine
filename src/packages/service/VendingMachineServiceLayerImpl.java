@@ -1,5 +1,7 @@
 package packages.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import packages.dao.VendingMachineDAO;
 import packages.dao.VendingMachineDAOImpl;
 import packages.dto.VendingMachineItem;
@@ -10,9 +12,11 @@ import packages.service.Exception.VendingMachineOutOfStockException;
 import java.math.BigDecimal;
 import java.util.*;
 
+@Component
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer {
     private VendingMachineDAO dao;
 
+    @Autowired
     public VendingMachineServiceLayerImpl(VendingMachineDAO dao) {
         this.dao = dao;
     }

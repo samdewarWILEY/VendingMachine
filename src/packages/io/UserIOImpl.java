@@ -1,17 +1,18 @@
 package packages.io;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
 
 import static java.text.ChoiceFormat.nextDouble;
-
+@Component
 public class UserIOImpl implements UserIO{
     Scanner scanner;
+    @Autowired
     public UserIOImpl(){
         this.scanner=new Scanner(System.in);
-    }
-    public UserIOImpl(Scanner scanner){
-        this.scanner=scanner;
     }
     @Override
     public void print(String message) {

@@ -1,14 +1,18 @@
 package packages.view;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import packages.dto.VendingMachineItem;
 import packages.io.UserIO;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 
+@Component
 public class VendingMachineView {
     private UserIO io;
 
+    @Autowired
     public VendingMachineView(UserIO io) {
         this.io = io;
     }

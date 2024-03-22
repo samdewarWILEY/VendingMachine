@@ -1,22 +1,22 @@
 package packages.controller;
 
-import packages.dao.VendingMachineDAO;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import packages.service.Exception.VendingMachineInsufficientCoinException;
 import packages.service.Exception.VendingMachineItemNotFoundException;
 import packages.service.Exception.VendingMachineOutOfStockException;
 import packages.service.VendingMachineServiceLayer;
 import packages.view.VendingMachineView;
 
-import java.math.BigDecimal;
-
+@Component
 public class VendingMachineController {
 
 
     private VendingMachineServiceLayer serviceLayer;
     private VendingMachineView view;
 
-
+    @Autowired
     public VendingMachineController(VendingMachineServiceLayer serviceLayer, VendingMachineView view) {
         this.serviceLayer = serviceLayer;
         this.view = view;
@@ -31,7 +31,6 @@ public class VendingMachineController {
             serviceLayer.buyItem(view.promptForItem(), coin);
         }
     }
-
 
 
 }
